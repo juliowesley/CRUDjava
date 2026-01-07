@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class GerenciadorTarefas {
 
     // Atributo Array List
-    private ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
+    private ArrayList<Tarefa> tarefas;
+    public Object getTarefas;
 
     // Método construtor
     public GerenciadorTarefas() {
@@ -14,21 +15,27 @@ public class GerenciadorTarefas {
 
     // Create
     public void adicionar(String descricao) {
-        Tarefa novaTarefa = new Tarefa(descricao);
-        this.tarefas.add(novaTarefa);
+        Tarefa novaTarefa = new Tarefa(descricao); // O objeto 'novaTarefa' recebe a descricao do usuário
+        this.tarefas.add(novaTarefa); // A lista tarefas recebe um novo item com 'novaTarefa'
     }
 
     // Read
     public void listarTarefas() {
-        for (int i = 0; i < tarefas.size(); i++) {
-            System.out.println((i + 1) + ". " + tarefas.get(i));
+            for (int i = 0; i < tarefas.size(); i++) {
+                System.out.println((i + 1) + ". " + tarefas.get(i));// Com o método for, 'tarefas' lista os itens
+                                                                    // começando
+                                                                    // no indice 0 mas mostrando 1 para o usuário
+            }
         }
-    }
+    
 
     // Update
     public void concluirTarefas(int posicao) {
         int indiceReal = posicao - 1;
-        if (indiceReal >= 0 && indiceReal < tarefas.size()) {
+        if (indiceReal >= 0 && indiceReal < tarefas.size()) {// A posição escolhida pelo usuáro é subtraida por 1
+                                                             // onde
+            // 'indiceReal' recebe esse valor, compara, vira parâmetro
+            // e printa
             Tarefa t = tarefas.get(indiceReal);
             t.setConcluido(true);
             System.out.println("\nTarefa conluida com sucesso");
@@ -40,7 +47,8 @@ public class GerenciadorTarefas {
     // Delete
     public void removerTarefa(int posicao) {
         int indiceReal = posicao - 1;
-        if (indiceReal >= 0 && indiceReal < tarefas.size()) {
+        if (indiceReal >= 0 && indiceReal < tarefas.size()) {// A mesma logica usada no método 'concluirTarefas' se
+                                                             // aplica aqui com 'indiceReal'
             tarefas.remove(indiceReal);
             System.out.println("\nTarefa removida com sucesso.");
         } else {

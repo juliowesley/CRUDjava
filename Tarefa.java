@@ -1,16 +1,16 @@
 public class Tarefa {
 
-    //Atributos
+    // Atributos
     private String descricao;
     private boolean concluida;
 
-    //Método construtor
+    // Método construtor
     public Tarefa(String novadescricao) {
         this.descricao = novadescricao;
         this.concluida = false;
     }
 
-    //Mpetodos Get & Set
+    // Mpetodos Get & Set
     public String getDescricao() {
         return descricao;
     }
@@ -23,13 +23,13 @@ public class Tarefa {
         this.concluida = concluido;
     }
 
-    //Métod toString formatado
+    // Métod toString formatado
     @Override
     public String toString() {
         if (concluida == true) {
-            return "[X]" + descricao;
+            return "[X] " + descricao;
         } else {
-            return "[ ]" + descricao;
+            return "[ ] " + descricao;
         }
     }
 
